@@ -61,6 +61,25 @@ export const projects: Project[] = [
     liveUrl: 'https://www.pharmastackx.com',
     sourceUrl: 'https://github.com/pharmastackx-cyber/Pharmastackx',
   },
+  {
+    id: 'project-4',
+    title: 'Founder Startup Builder',
+    description:
+      'AI-powered startup builder platform that guides founders through idea validation, strategy development, and MVP planning with honest feedback and actionable insights.',
+    technicalDescription:
+      'A full-stack platform built with React, Node.js, and MongoDB. It features user authentication, project management, and real-time AI-powered analysis and chat. The backend is deployed on Railway and the frontend on Vercel.',
+    tags: [
+      'React',
+      'Node.js',
+      'MongoDB',
+      'OpenAI API',
+      'JWT',
+      'AI-Powered',
+    ],
+    image: getImage('project-4'),
+    liveUrl: 'https://founderstartupbuilder.vercel.app/',
+    sourceUrl: 'https://github.com/Surge-Ogiemudia/FounderStartupBuilder',
+  },
 ];
 
 export const skillCategories: SkillCategory[] = [
