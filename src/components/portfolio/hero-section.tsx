@@ -33,7 +33,7 @@ export function HeroSection() {
           {personalInfo.introduction}
         </p>
         <div className="mt-10 flex justify-center gap-4">
-          <Button size="lg" asChild>
+          <Button size="lg" asChild variant="outline">
             <a href={`https://wa.me/${personalInfo.whatsapp}`} target="_blank" rel="noopener noreferrer">
               <WhatsappIcon />
               WhatsApp
