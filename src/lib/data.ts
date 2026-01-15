@@ -11,9 +11,9 @@ const getImage = (id: string) => {
 
 export const personalInfo = {
   name: 'Surge Ogiemudia',
-  title: 'AI Product Manager & Builder',
+  title: 'AI Product Builder',
   introduction:
-    'I am a product manager who has built and managed AI products that assist people in making better decisions. With a background in both engineering and product, I bridge the gap between technical possibilities and market needs.',
+    'I built my first product, a progressive web app, with heavy assistance from AI tools like Gemini and Copilot. The project was developed using Next.js, deployed on Vercel, and utilizes MongoDB for the database. It includes features like push notifications and subdomain functionality for its marketplace.',
   email: 'hello@surgeogiemudia.ai',
   socials: {
     linkedin: 'https://www.linkedin.com/',
