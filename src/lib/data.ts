@@ -14,12 +14,12 @@ export const personalInfo = {
   title: 'AI Product Builder',
   introduction:
     'I built my first product, a progressive web app, leveraging assistance from AI tools like Gemini and Copilot. The project was developed using Next.js, deployed on Vercel, and utilizes MongoDB for the database. It includes features like push notifications and subdomain functionality for its marketplace.',
-  email: 'hello@surgeogiemudia.ai',
+  email: 'pogiemudia@gmail.com',
   socials: {
-    linkedin: 'https://www.linkedin.com/',
+    linkedin: 'https://www.linkedin.com/in/osakpolor-ogiemudia-surge-3a00501ab/',
     github: 'https://github.com/',
   },
-  whatsapp: '1234567890',
+  whatsapp: '2349050006638',
 };
 
 export const navLinks: NavLink[] = [
