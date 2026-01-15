@@ -13,7 +13,7 @@ export const personalInfo = {
   name: 'Surge Ogiemudia',
   title: 'AI Product Manager & Builder',
   introduction:
-    'I specialize in building and managing AI-driven products that solve complex problems. With a background in both engineering and product, I bridge the gap between technical possibilities and market needs.',
+    'I am a product manager who has built and managed AI products that assist people in making better decisions. With a background in both engineering and product, I bridge the gap between technical possibilities and market needs.',
   email: 'hello@surgeogiemudia.ai',
   socials: {
     linkedin: 'https://www.linkedin.com/',
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     id: 'project-1',
     title: 'Project Insight',
     description:
-      'An AI-powered analytics platform that surfaces key business insights from unstructured data. Led the product from conception to a successful beta launch with 10 enterprise clients.',
+      'An AI-powered analytics platform that assists business leaders in surfacing key insights from unstructured data. Led the product from conception to a successful beta launch with 10 enterprise clients.',
     tags: ['Product Strategy', 'NLP', 'React', 'Python', 'AWS'],
     image: getImage('project-1'),
     liveUrl: '#',
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     title: 'Genie'
     ,
     description:
-      'A generative AI tool for marketing teams to create high-quality ad copy. Managed a cross-functional team of 8 to deliver a 40% increase in user engagement post-launch.',
+      'A generative AI tool to assist marketing teams in creating high-quality ad copy. Managed a cross-functional team of 8 to deliver a 40% increase in user engagement post-launch.',
     tags: ['LLMs', 'Roadmap Planning', 'Next.js', 'Firebase'],
     image: getImage('project-2'),
     liveUrl: '#',
