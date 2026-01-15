@@ -10,11 +10,11 @@ const getImage = (id: string) => {
 };
 
 export const personalInfo = {
-  name: 'Alex Doe',
+  name: 'Surge Ogiemudia',
   title: 'AI Product Manager & Builder',
   introduction:
     'I specialize in building and managing AI-driven products that solve complex problems. With a background in both engineering and product, I bridge the gap between technical possibilities and market needs.',
-  email: 'hello@alexdoe.ai',
+  email: 'hello@surgeogiemudia.ai',
   socials: {
     linkedin: 'https://www.linkedin.com/',
     github: 'https://github.com/',
