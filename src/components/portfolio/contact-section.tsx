@@ -18,6 +18,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, Send } from 'lucide-react';
+import { personalInfo } from '@/lib/data';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -45,30 +46,24 @@ export function ContactSection() {
   async function onSubmit(data: ContactFormValues) {
     setIsSubmitting(true);
     try {
-      const response = await fetch('https://formspree.io/f/your_form_id', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+      const subject = encodeURIComponent(`Message from ${data.name} via Portfolio`);
+      const body = encodeURIComponent(
+        `${data.message}\n\nFrom: ${data.name}\nEmail: ${data.email}`
+      );
+      window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
 
-      if (response.ok) {
-        toast({
-          title: 'Message Sent!',
-          description: "Thanks for reaching out. I'll get back to you soon.",
-        });
-        form.reset();
-      } else {
-        throw new Error('Failed to send message.');
-      }
+      toast({
+        title: 'Ready to Send!',
+        description:
+          "Your email app should now be open. Just hit 'send' to get in touch.",
+      });
+      form.reset();
     } catch (error) {
       toast({
         variant: 'destructive',
         title: 'Uh oh! Something went wrong.',
         description:
-          'There was a problem sending your message. Please try again later.',
+          'There was a problem preparing your message. Please try again later.',
       });
     } finally {
       setIsSubmitting(false);
@@ -139,28 +134,16 @@ export function ContactSection() {
               />
               <div className="text-right">
                 <Button type="submit" size="lg" disabled={isSubmitting}>
-                  {isSubmitting ? <Loader2 className="animate-spin" /> : <Send />}
+                  {isSubmitting ? (
+                    <Loader2 className="animate-spin" />
+                  ) : (
+                    <Send />
+                  )}
                   Send Message
                 </Button>
               </div>
             </form>
           </Form>
-          <p className="mt-8 text-sm text-muted-foreground">
-            Note: To make this form functional, create a new form at{' '}
-            <a
-              href="https://formspree.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline"
-            >
-              formspree.io
-            </a>{' '}
-            and replace the placeholder URL in{' '}
-            <code className="rounded bg-muted px-1 py-0.5">
-              src/components/portfolio/contact-section.tsx
-            </code>
-            .
-          </p>
         </div>
       </div>
     </section>
