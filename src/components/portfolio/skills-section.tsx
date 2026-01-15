@@ -4,9 +4,9 @@ import { Badge } from '@/components/ui/badge';
 import { BrainCircuit, Briefcase, Code } from 'lucide-react';
 
 const iconMap: { [key: string]: React.ReactNode } = {
-  'AI & Machine Learning': <BrainCircuit className="h-5 w-5" />,
-  'Product Management': <Briefcase className="h-5 w-5" />,
-  'Technical Skills': <Code className="h-5 w-5" />,
+  'AI-Assisted Development': <BrainCircuit className="h-5 w-5" />,
+  'Product & UX': <Briefcase className="h-5 w-5" />,
+  'Technical Stack': <Code className="h-5 w-5" />,
 };
 
 export function SkillsSection() {
