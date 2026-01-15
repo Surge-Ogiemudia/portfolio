@@ -32,32 +32,13 @@ export const navLinks: NavLink[] = [
 export const projects: Project[] = [
   {
     id: 'project-1',
-    title: 'AI-Assisted Product Development',
+    title: 'Pharmastackx - AI-Assisted PWA Marketplace',
     description:
-      'Leveraged AI tools like Gemini and Copilot to build a full-stack Progressive Web App from concept to deployment. This approach accelerated development and facilitated the implementation of complex features.',
-    tags: ['AI-Assisted Development', 'Next.js', 'MongoDB', 'PWA'],
+      'A full-stack Progressive Web App marketplace built with Next.js and MongoDB. This project was developed from concept to deployment with significant AI assistance, featuring dynamic subdomain routing for vendors and real-time push notifications.',
+    tags: ['Next.js', 'MongoDB', 'PWA', 'AI-Assisted', 'Subdomains'],
     image: getImage('project-1'),
-    liveUrl: '#',
+    liveUrl: 'https://www.pharmastackx.com',
     sourceUrl: '#',
-  },
-  {
-    id: 'project-2',
-    title: 'Marketplace with Subdomains',
-    description:
-      'Engineered a dynamic marketplace where users get their own subdomains. This required a robust architecture to handle routing, data isolation, and a seamless user experience across the platform.',
-    tags: ['Next.js', 'Vercel', 'Subdomain Routing', 'UX Design'],
-    image: getImage('project-2'),
-    liveUrl: '#',
-    sourceUrl: '#',
-  },
-  {
-    id: 'project-3',
-    title: 'PWA with Push Notifications',
-    description:
-      'Developed and configured the application as a Progressive Web App (PWA) to provide a native-app-like experience, complete with offline capabilities and real-time push notifications to engage users.',
-    tags: ['PWA', 'Service Workers', 'Push API', 'User Engagement'],
-    image: getImage('project-3'),
-    liveUrl: '#',
   },
 ];
 
