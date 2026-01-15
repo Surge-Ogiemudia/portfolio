@@ -1,10 +1,22 @@
 import type { Project, SkillCategory, NavLink } from './definitions';
-import { PlaceHolderImages } from './placeholder-images';
+import { placeholderImages as allPlaceholderImages } from './placeholder-images';
+
+export const placeholderImages = allPlaceholderImages;
 
 const getImage = (id: string) => {
-  const image = PlaceHolderImages.find((img) => img.id === id);
+  const image = placeholderImages.find((img) => img.id === id);
   if (!image) {
-    throw new Error(`Image with id ${id} not found`);
+    // Fallback to a default image if not found, to prevent crashes
+    const fallback = placeholderImages.find(img => img.id === 'project-1');
+    if (fallback) return fallback;
+    
+    // If even fallback is not there, create a dummy object
+    return {
+      id: 'fallback',
+      description: 'Fallback image',
+      imageUrl: 'https://placehold.co/600x400',
+      imageHint: 'placeholder'
+    }
   }
   return image;
 };

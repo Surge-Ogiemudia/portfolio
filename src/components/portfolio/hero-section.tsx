@@ -1,6 +1,9 @@
 import { personalInfo } from '@/lib/data';
 import { Button } from '../ui/button';
 import { Linkedin, Mail } from 'lucide-react';
+import Image from 'next/image';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import { placeholderImages } from '@/lib/placeholder-images';
 
 const WhatsappIcon = () => (
   <svg
@@ -20,9 +23,20 @@ const WhatsappIcon = () => (
 );
 
 export function HeroSection() {
+  const avatarImage = placeholderImages.find((img) => img.id === 'avatar');
   return (
     <section id="home" className="py-24 sm:py-32">
       <div className="container mx-auto max-w-5xl px-4 text-center">
+        {avatarImage && (
+          <Avatar className="mx-auto mb-8 h-32 w-32">
+            <AvatarImage
+              src={avatarImage.imageUrl}
+              alt={personalInfo.name}
+              data-ai-hint={avatarImage.imageHint}
+            />
+            <AvatarFallback>{personalInfo.name.charAt(0)}</AvatarFallback>
+          </Avatar>
+        )}
         <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-6xl">
           {personalInfo.name}
         </h1>
@@ -34,7 +48,11 @@ export function HeroSection() {
         </p>
         <div className="mt-10 flex justify-center gap-4">
           <Button size="lg" asChild variant="outline">
-            <a href={`https://wa.me/${personalInfo.whatsapp}`} target="_blank" rel="noopener noreferrer">
+            <a
+              href={`https://wa.me/${personalInfo.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <WhatsappIcon />
               WhatsApp
             </a>
@@ -46,7 +64,11 @@ export function HeroSection() {
             </a>
           </Button>
           <Button size="lg" asChild variant="outline">
-            <a href={personalInfo.socials.linkedin} target="_blank" rel="noopener noreferrer">
+            <a
+              href={personalInfo.socials.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Linkedin />
               LinkedIn
             </a>
