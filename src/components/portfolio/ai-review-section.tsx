@@ -25,6 +25,7 @@ import {
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Textarea } from '@/components/ui/textarea';
 import { Bot, Loader2, Sparkles } from 'lucide-react';
+import { MotionSection } from '../shared/motion-section';
 
 const reviewFormSchema = z.object({
   portfolioContent: z
@@ -57,7 +58,7 @@ export function AiReviewSection() {
 
     const result = await portfolioAiReviewAction(data);
 
-    if (result.success && result.data) {
+    if (result.success) {
       setAiFeedback(result.data.feedback);
     } else {
       setError(result.error || 'An unexpected error occurred.');
@@ -67,7 +68,7 @@ export function AiReviewSection() {
   }
 
   return (
-    <section id="review" className="scroll-mt-16 bg-muted/50 py-24 sm:py-32">
+    <MotionSection id="review" className="scroll-mt-16 bg-muted/50 py-24 sm:py-32">
       <div className="container mx-auto max-w-5xl px-4">
         <div className="text-center">
           <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">
@@ -194,6 +195,6 @@ export function AiReviewSection() {
           </CardContent>
         </Card>
       </div>
-    </section>
+    </MotionSection>
   );
 }

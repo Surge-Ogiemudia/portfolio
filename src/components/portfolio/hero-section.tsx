@@ -2,6 +2,7 @@ import { personalInfo } from '@/lib/data';
 import { Button } from '../ui/button';
 import { Linkedin, Mail } from 'lucide-react';
 import Image from 'next/image';
+import { MotionSection } from '../shared/motion-section';
 
 const WhatsappIcon = () => (
   <svg
@@ -22,7 +23,7 @@ const WhatsappIcon = () => (
 
 export function HeroSection() {
   return (
-    <section id="home" className="py-24 sm:py-32">
+    <MotionSection id="home" className="py-24 sm:py-32">
       <div className="container mx-auto max-w-5xl px-4 text-center">
         <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-6xl">
           {personalInfo.name}
@@ -62,6 +63,6 @@ export function HeroSection() {
           </Button>
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 }

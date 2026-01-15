@@ -19,6 +19,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, Send } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
+import { MotionSection } from '../shared/motion-section';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -71,7 +72,7 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="scroll-mt-16 py-24 sm:py-32">
+    <MotionSection id="contact" className="scroll-mt-16 py-24 sm:py-32">
       <div className="container mx-auto max-w-5xl px-4">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">
@@ -146,6 +147,6 @@ export function ContactSection() {
           </Form>
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 }

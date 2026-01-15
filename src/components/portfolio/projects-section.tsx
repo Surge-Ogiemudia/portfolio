@@ -17,10 +17,11 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { ExternalLink, Github, Wrench } from 'lucide-react';
+import { MotionSection } from '../shared/motion-section';
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="scroll-mt-16 py-24 sm:py-32">
+    <MotionSection id="projects" className="scroll-mt-16 py-24 sm:py-32">
       <div className="container mx-auto max-w-5xl px-4">
         <div className="text-center">
           <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">
@@ -106,6 +107,6 @@ export function ProjectsSection() {
           ))}
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 }

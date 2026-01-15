@@ -2,6 +2,7 @@ import { skillCategories } from '@/lib/data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { BrainCircuit, Briefcase, Code } from 'lucide-react';
+import { MotionSection } from '../shared/motion-section';
 
 const iconMap: { [key: string]: React.ReactNode } = {
   'AI-Assisted Development': <BrainCircuit className="h-5 w-5" />,
@@ -11,7 +12,7 @@ const iconMap: { [key: string]: React.ReactNode } = {
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="scroll-mt-16 bg-muted/50 py-24 sm:py-32">
+    <MotionSection id="skills" className="scroll-mt-16 bg-muted/50 py-24 sm:py-32">
       <div className="container mx-auto max-w-5xl px-4">
         <div className="text-center">
           <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">
@@ -46,6 +47,6 @@ export function SkillsSection() {
           ))}
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 }
