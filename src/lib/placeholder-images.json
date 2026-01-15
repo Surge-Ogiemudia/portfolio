@@ -1,12 +1,6 @@
 {
   "placeholderImages": [
     {
-      "id": "avatar",
-      "description": "An avatar for the portfolio owner.",
-      "imageUrl": "https://images.unsplash.com/photo-1612361844688-c6c9c44f3966?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwb3J0cmFpdCUyMHBlcnNvbnxlbnwwfHx8fDE3Njg0NTQ2ODN8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "portrait person"
-    },
-    {
       "id": "project-1",
       "description": "The logo for the Pharmastackx marketplace.",
       "imageUrl": "/images/pharmastackx.jpg",
