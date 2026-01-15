@@ -13,12 +13,13 @@ export const personalInfo = {
   name: 'Surge Ogiemudia',
   title: 'AI Product Builder',
   introduction:
-    'I built my first product, a progressive web app, with heavy assistance from AI tools like Gemini and Copilot. The project was developed using Next.js, deployed on Vercel, and utilizes MongoDB for the database. It includes features like push notifications and subdomain functionality for its marketplace.',
+    'I built my first product, a progressive web app, leveraging assistance from AI tools like Gemini and Copilot. The project was developed using Next.js, deployed on Vercel, and utilizes MongoDB for the database. It includes features like push notifications and subdomain functionality for its marketplace.',
   email: 'hello@surgeogiemudia.ai',
   socials: {
     linkedin: 'https://www.linkedin.com/',
     github: 'https://github.com/',
   },
+  whatsapp: '1234567890',
 };
 
 export const navLinks: NavLink[] = [
