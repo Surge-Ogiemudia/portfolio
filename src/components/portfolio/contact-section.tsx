@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -16,8 +17,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { personalInfo } from '@/lib/data';
-import { Send } from 'lucide-react';
+import { Loader2, Send } from 'lucide-react';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -31,6 +31,7 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export function ContactSection() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -41,13 +42,37 @@ export function ContactSection() {
     },
   });
 
-  function onSubmit(data: ContactFormValues) {
-    console.log('Contact form submitted:', data);
-    toast({
-      title: 'Message Sent!',
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    });
-    form.reset();
+  async function onSubmit(data: ContactFormValues) {
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('https://formspree.io/f/your_form_id', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        toast({
+          title: 'Message Sent!',
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        });
+        form.reset();
+      } else {
+        throw new Error('Failed to send message.');
+      }
+    } catch (error) {
+      toast({
+        variant: 'destructive',
+        title: 'Uh oh! Something went wrong.',
+        description:
+          'There was a problem sending your message. Please try again later.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -113,13 +138,29 @@ export function ContactSection() {
                 )}
               />
               <div className="text-right">
-                <Button type="submit" size="lg">
-                  <Send />
+                <Button type="submit" size="lg" disabled={isSubmitting}>
+                  {isSubmitting ? <Loader2 className="animate-spin" /> : <Send />}
                   Send Message
                 </Button>
               </div>
             </form>
           </Form>
+          <p className="mt-8 text-sm text-muted-foreground">
+            Note: To make this form functional, create a new form at{' '}
+            <a
+              href="https://formspree.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              formspree.io
+            </a>{' '}
+            and replace the placeholder URL in{' '}
+            <code className="rounded bg-muted px-1 py-0.5">
+              src/components/portfolio/contact-section.tsx
+            </code>
+            .
+          </p>
         </div>
       </div>
     </section>
