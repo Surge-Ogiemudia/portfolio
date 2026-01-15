@@ -4,6 +4,7 @@ export type Project = {
   id: string;
   title: string;
   description: string;
+  technicalDescription?: string;
   tags: string[];
   image: ImagePlaceholder;
   liveUrl?: string;

@@ -35,6 +35,8 @@ export const projects: Project[] = [
     title: 'Pharmastackx - AI-Assisted PWA Marketplace',
     description:
       "A digital healthcare infrastructure built to eliminate inventory invisibility in Nigeria's pharmaceutical market. It replaces fragmented manual searches with an automated, real-time network. The platform provides pharmacies with unique subdomains for their digital catalogs and notifies them instantly to confirm availability when a user searches for a drug.",
+    technicalDescription:
+      'A full-stack Progressive Web App marketplace built with Next.js and MongoDB. This project was developed from concept to deployment with significant AI assistance, featuring dynamic subdomain routing for vendors and real-time push notifications.',
     tags: [
       'Next.js',
       'MongoDB',

@@ -7,10 +7,16 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Wrench } from 'lucide-react';
 
 export function ProjectsSection() {
   return (
@@ -41,10 +47,27 @@ export function ProjectsSection() {
                 />
               </div>
               <CardHeader>
-                <CardTitle className="font-headline text-xl">{project.title}</CardTitle>
+                <CardTitle className="font-headline text-xl">
+                  {project.title}
+                </CardTitle>
                 <CardDescription>{project.description}</CardDescription>
               </CardHeader>
-              <CardContent className="flex-grow">
+              <CardContent className="flex-grow space-y-4">
+                {project.technicalDescription && (
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="item-1">
+                      <AccordionTrigger className="text-sm">
+                        <div className="flex items-center gap-2">
+                          <Wrench className="h-4 w-4" />
+                          Technical Snapshot
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="text-sm text-foreground/80">
+                        {project.technicalDescription}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                )}
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <Badge key={tag} variant="outline">
