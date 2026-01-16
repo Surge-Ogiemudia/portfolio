@@ -16,7 +16,12 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
-    const newData = await req.json();
+    const { password, ...newData } = await req.json();
+
+    if (password !== 'password') {
+      return new NextResponse('Unauthorized', { status: 401 });
+    }
+
     await fs.writeFile(dataPath, JSON.stringify(newData, null, 2));
     return new NextResponse('Portfolio data updated successfully', { status: 200 });
   } catch (error) {
