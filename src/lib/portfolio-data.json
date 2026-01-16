@@ -1,4 +1,7 @@
 {
+  "name": "Surge Ogiemudia",
+  "role": "AI-Assisted Full-Stack Developer",
+  "bio": "I build full-stack applications and digital infrastructures, leveraging AI to accelerate development from concept to deployment. My approach combines rapid prototyping with a focus on creating scalable, user-centric solutions.",
   "projects": [
     {
       "id": "project-1",
@@ -69,6 +72,15 @@
         "Node.js",
         "Tailwind CSS"
       ]
+    }
+  ],
+  "education": [],
+  "certifications": [
+    {
+      "name": "Certified Full-Stack Web Developer",
+      "issuingOrganization": "FreeCodeCamp",
+      "date": "2023",
+      "url": "https://www.freecodecamp.org/certification/fcc..."
     }
   ]
 }
