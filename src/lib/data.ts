@@ -1,16 +1,14 @@
 import type { Project, SkillCategory, NavLink } from './definitions';
 import { placeholderImages as allPlaceholderImages } from './placeholder-images';
+import portfolioData from './portfolio-data.json';
 
 export const placeholderImages = allPlaceholderImages;
 
 const getImage = (id: string) => {
   const image = placeholderImages.find((img) => img.id === id);
   if (!image) {
-    // Fallback to a default image if not found, to prevent crashes
     const fallback = placeholderImages.find(img => img.id === 'project-1');
     if (fallback) return fallback;
-    
-    // If even fallback is not there, create a dummy object
     return {
       id: 'fallback',
       description: 'Fallback image',
@@ -41,80 +39,11 @@ export const navLinks: NavLink[] = [
   { href: '#contact', label: 'Contact' },
 ];
 
-export const projects: Project[] = [
-  {
-    id: 'project-1',
-    title: 'Pharmastackx - AI-Assisted PWA Marketplace',
-    description:
-      "A digital healthcare infrastructure built to eliminate inventory invisibility in Nigeria's pharmaceutical market. It replaces fragmented manual searches with an automated, real-time network. The platform provides pharmacies with unique subdomains for their digital catalogs and notifies them instantly to confirm availability when a user searches for a drug.",
-    technicalDescription:
-      'A full-stack Progressive Web App marketplace built with Next.js and MongoDB. This project was developed from concept to deployment with AI assistance, featuring dynamic subdomain routing for vendors and real-time push notifications.',
-    tags: [
-      'Next.js',
-      'MongoDB',
-      'PWA',
-      'AI-Assisted',
-      'Subdomains',
-      'Healthcare',
-    ],
-    image: getImage('project-1'),
-    liveUrl: 'https://www.pharmastackx.com',
-    sourceUrl: 'https://github.com/pharmastackx-cyber/Pharmastackx',
-  },
-  {
-    id: 'project-4',
-    title: 'Founder Startup Builder',
-    description:
-      'AI-powered startup builder platform that guides founders through idea validation, strategy development, and MVP planning with honest feedback and actionable insights.',
-    technicalDescription:
-      'A full-stack platform built with React, Node.js, and MongoDB. It features user authentication, project management, and real-time AI-powered analysis and chat. The backend is deployed on Railway and the frontend on Vercel.',
-    tags: [
-      'React',
-      'Node.js',
-      'MongoDB',
-      'OpenAI API',
-      'JWT',
-      'AI-Powered',
-    ],
-    image: getImage('project-4'),
-    liveUrl: 'https://founderstartupbuilder.vercel.app/',
-    sourceUrl: 'https://github.com/Surge-Ogiemudia/FounderStartupBuilder',
-  },
-];
+const projectsData = portfolioData.projects as Array<Omit<Project, 'image'> & { imageId: string }>;
 
-export const skillCategories: SkillCategory[] = [
-  {
-    title: 'AI-Assisted Development',
-    skills: [
-      'Prompt Engineering',
-      'AI Code Generation',
-      'Gemini & Copilot',
-      'Iterative Prototyping',
-      'AI Tool Integration',
-      'Feature Scoping with AI',
-    ],
-  },
-  {
-    title: 'Product & UX',
-    skills: [
-      'Concept to Launch',
-      'Feature Prioritization',
-      'User-Centric Design',
-      'Marketplace Functionality',
-      'Subdomain Architecture',
-      'Progressive Web Apps (PWA)',
-    ],
-  },
-  {
-    title: 'Technical Stack',
-    skills: [
-      'Next.js & React',
-      'TypeScript',
-      'Vercel Deployment',
-      'MongoDB (NoSQL)',
-      'Push Notifications',
-      'Node.js',
-      'Tailwind CSS',
-    ],
-  },
-];
+export const projects: Project[] = projectsData.map(p => ({
+  ...p,
+  image: getImage(p.imageId),
+}));
+
+export const skillCategories: SkillCategory[] = portfolioData.skillCategories;
